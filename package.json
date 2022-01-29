@@ -1,0 +1,19 @@
+{
+  "name": "get_cpus_length",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaoxiaojx",
+  "license": "ISC",
+  "description": "Solve the problem of Not correct os.cpus().length inside the docker container with cpus limited.",
+  "keywords": [
+    "docker",
+    "container",
+    "k8s",
+    "kubernetes",
+    "cpus",
+    "automaxprocs"
+  ]
+}
