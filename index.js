@@ -8,6 +8,7 @@ function readNumber(file) {
 function getCpuLimits() {
   try {
     return (
+      // Reference solution for go-lang https://github.com/uber-go/automaxprocs
       readNumber("/sys/fs/cgroup/cpu/cpu.cfs_quota_us") /
       readNumber("/sys/fs/cgroup/cpu/cpu.cfs_period_us")
     );
