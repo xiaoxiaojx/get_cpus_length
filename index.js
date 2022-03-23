@@ -7,6 +7,10 @@ function readNumber(file) {
 
 // @xiaoxiaojx
 // Reference solution for go-lang https://github.com/uber-go/automaxprocs
+
+/**
+ * @returns {number}
+ */
 function getCpuLimits() {
   try {
     return (
@@ -18,10 +22,21 @@ function getCpuLimits() {
       readNumber("/sys/fs/cgroup/cpu/cpu.cfs_period_us")
     );
   } catch (err) {
-    return 0;
+    return -1;
   }
 }
 
+/**
+ * @returns {number}
+ */
 module.exports = () => {
-  return getCpuLimits() || os.cpus().length;
+  const maybeResult = getCpuLimits();
+
+  if (maybeResult > 0) {
+    return maybeResult;
+  }
+
+  return os.cpus().length;
 };
+
+module.exports.getCpuLimits = getCpuLimits;
